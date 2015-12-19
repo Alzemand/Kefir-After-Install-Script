@@ -144,7 +144,7 @@ case $op in
 		esac
 		;;
 
-	4)	#INSTALANDO GDEBI
+	4)	#INSTALANDO FURIOS
 		echo "================================================================================"
 		echo "KEFIR SCRIPT INSTALL - Furios ISO Mount "
 		echo "================================================================================"
