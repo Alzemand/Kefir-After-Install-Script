@@ -18,7 +18,7 @@ clear
 			echo "Vamos prosseguir com a instalação..."	
 			sleep 2
 			echo "Digite a sua senha de usuário"
-            sleep 4
+       
 
 #FUNÇÂO PARA GERA OPÇÂO ESCOLIDA PELO USUARIO {{{
 
