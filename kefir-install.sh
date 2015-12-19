@@ -10,15 +10,45 @@
 
 
 clear
-	echo "Olá $USER, este script vai instalar os principais softwares no seu computador 
-        (Ubuntu, Linux Mint e Derivados) -- Pressione Enter para iniciar --"
-	read key
+	echo "Hi $USER, This script will install the best software on your computeror 
+        (Ubuntu, Linux Mint and More)"
+	key=$(zenity --entry --text="Please enter your password " --hide-text)
 	if [ $key == $key ]
 		then
-			echo "Vamos prosseguir com a instalação..."	
+			echo "Let's proceed with the installation ..."	
 			sleep 2
-			echo "Digite a sua senha de usuário"
-       
+            clear
+
+testaconexao()
+{
+echo "Checking internet connection..."
+if ! ping -c 7 www.google.com.br 1>/dev/null 2>/dev/stdout; then
+	echo "You are offline. This script needs internet connection"
+	sleep 3
+	read -p "Try connection test again? y/n: " -n1 escolha
+	case $escolha in
+			s|S|y|Y) echo
+				clear
+				testaconexao
+				;;
+			n|N) echo
+				echo Returning to the Main Menu ...
+				sleep 2
+				tela_opcoes
+				exit
+				;;
+			*) echo
+				echo Incorrect alternatives ... Leaving
+				exit
+				;;
+	esac
+else
+	echo "Connection is ok"
+    sleep 2
+    clear
+
+fi
+}
 
 #FUNÇÂO PARA GERA OPÇÂO ESCOLIDA PELO USUARIO {{{
 
@@ -30,24 +60,24 @@ case $op in
 		echo "================================================================================"
 		sudo apt-get install htop mplayer2 fbi links2 wifite reaver aircrack-ng -y 
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			  *)
 			  	echo
-			  	echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-			  	echo "TENTE NOVAMENTE!"
+			  	echo "You did not enter CORRECTLY!"
+			  	echo "Try again"
 			  	sleep 2
 			  	exit
 				;;
@@ -60,24 +90,24 @@ case $op in
 		echo "================================================================================"
 		sudo apt-get install ubuntu-restricted-extras -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			  *)
 			  	echo
-			  	echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-			  	echo "TENTE NOVAMENTE!"
+			  	echo "You did not enter CORRECTLY!"
+			  	echo "Try again"
 			  	sleep 2
 			  	exit
 				;;
@@ -86,28 +116,28 @@ case $op in
 
 	3)	#INSTALANDO GDEBI
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - Gdebi > install .deb"
+		echo "KEFIR SCRIPT INSTALL - Gdebi install .deb files"
 		echo "================================================================================"
 		sudo apt-get install gdebi -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			  *)
 			  	echo
-			  	echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-			  	echo "TENTE NOVAMENTE!"
+			  	echo "You did not enter CORRECTLY!"
+			  	echo "Try again"
 			  	sleep 2
 			  	exit
 				;;
@@ -116,28 +146,28 @@ case $op in
 
 	4)	#INSTALANDO GDEBI
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - Furios ISO Mount "
+		echo "KEFIR SCRIPT INSTALL - Furios ISO Mount "
 		echo "================================================================================"
 		sudo apt-get install furiusisomount -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			  *)
 			  	echo
-			  	echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-			  	echo "TENTE NOVAMENTE!"
+			  	echo "You did not enter CORRECTLY!"
+			  	echo "Try again"
 			  	sleep 2
 			  	exit
 				;;
@@ -146,147 +176,147 @@ case $op in
 
 	5) #INSTALANDO VLC PLAYER
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - VLC Player"
+		echo "KEFIR SCRIPT INSTALL - VLC Player"
 		echo "================================================================================"
 		sudo apt-get install vlc -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 		  	*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    6)	#INSTALANDO UNETBOOTIN
+    6)	#INSTALANDO BLEACH BIT
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - Bleach BIT clear your system"
+		echo "KEFIR SCRIPT INSTALL - Bleach BIT clear your system"
 		echo "================================================================================"
 		sudo apt-get install bleachbit -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 			esac
 			;;
 
-    7)	#ATUALIZANDO O SISTEMA
+    7)	#PDF MOD
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - PDF mod tool"
+		echo "KEFIR SCRIPT INSTALL - PDF mod tool"
 		echo "================================================================================"
 		sudo apt-get install pdfmod -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
-    8)	#ATUALIZANDO O SISTEMA
+    8)	#GEANY 
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - Geany IDE code"
+		echo "KEFIR SCRIPT INSTALL - Geany IDE code"
 		echo "================================================================================"
 		sudo apt-get install geany -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    9)	#ATUALIZANDO O SISTEMA
+    9)	#Synaptic
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - Synaptic"
+		echo "KEFIR SCRIPT INSTALL - Synaptic"
 		echo "================================================================================"
 		sudo apt-get install synaptic -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
@@ -295,28 +325,28 @@ case $op in
 
     10)	#ATUALIZANDO O GITHUB
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - GITHUB"
+		echo "KEFIR SCRIPT INSTALL - GITHUB"
 		echo "================================================================================"
 		sudo apt-get install git-core -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
@@ -325,207 +355,237 @@ case $op in
 
     11)	#ATUALIZANDO UNETBOOTIN
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - Unetbootin make a USB boot"
+		echo "KEFIR SCRIPT INSTALL - Unetbootin make a USB boot"
 		echo "================================================================================"
 		sudo apt-get install unetbootin -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    12)	#ATUALIZANDO UNETBOOTIN
+    12)	#SAMBA
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - SAMBA file sharing"
 		echo "================================================================================"
 		sudo apt-get install samba -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
-    14)	#ATUALIZANDO UNETBOOTIN
+    13)	#GIMP
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - GIMP imagem edit"
 		echo "================================================================================"
 		sudo apt-get install gimp -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    15)	#ATUALIZANDO UNETBOOTIN
+    14)	#Inkscape
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Inkscape Imagem Edit"
 		echo "================================================================================"
 		sudo apt-get install inkscape -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    16)	#ATUALIZANDO UNETBOOTIN
+    15)	#My Paint
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - My Paint Imagem Editor"
 		echo "================================================================================"
 		sudo apt-get install mypaint -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    17)	#ATUALIZANDO UNETBOOTIN
+    16)	#Audacity
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Audacity Audio Editor"
 		echo "================================================================================"
 		sudo apt-get install audacity -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    18)	#ATUALIZANDO UNETBOOTIN
+    17)	#synapse
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Synapse"
 		echo "================================================================================"
 		sudo apt-get install synapse -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+
+    18)	#SoundJuicer
+		echo "================================================================================"
+		echo "KEFIR SCRIPT INSTALL - Sound Juicer CD ripper"
+		echo "================================================================================"
+		sudo apt-get install sound-juicer -y
+		echo
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
@@ -534,376 +594,420 @@ case $op in
 
     19)	#ATUALIZANDO UNETBOOTIN
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
-		echo "================================================================================"
-		sudo apt-get install sound-juicer -y
-		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
-		case $esc in
-			S|s)
-				sleep 2
-				tela_opcoes
-				select_op
-				;;
-			N|n)
-				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
-				sleep 2
-				exit
-				;;
-			*)
-				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
-				sleep 2
-				exit
-				;;
-		esac
-		;;
-
-    20)	#ATUALIZANDO UNETBOOTIN
-		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Steam Game Plataform"
 		echo "================================================================================"
 		sudo apt-get install steam -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    21)	#ATUALIZANDO UNETBOOTIN
+    20)	#Playonlinux
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Play On Linux"
 		echo "================================================================================"
 		sudo apt-get install playonlinux -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    22)	#ATUALIZANDO UNETBOOTIN
+    21)	#OpenShot
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Openshot Video Editor"
 		echo "================================================================================"
 		sudo apt-get install openshot -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    23)	#ATUALIZANDO UNETBOOTIN
+    22)	#xubuntu-icon-theme
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Elementary Icons"
 		echo "================================================================================"
 		sudo apt-get install xubuntu-icon-theme -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    25)	#ATUALIZANDO UNETBOOTIN
+    23)	#FLATplat
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Flat Plat theme only for GNOME 3.16+"
 		echo "================================================================================"
 		sudo add-apt-repository ppa:noobslab/themes -y && sudo apt-get update && sudo apt-get install flat-plat-gs
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    25)	#ATUALIZANDO UNETBOOTIN
+    24)	#AMBIENCE FLAT THEME
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Ambience and Radiance Flat theme"
 		echo "================================================================================"
 		sudo add-apt-repository ppa:atareao/atareao -y && sudo apt-get update && sudo apt-get install ambiance-flat-colors radiance-flat-colors -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    26)	#ATUALIZANDO UNETBOOTIN
+    25)	#JAVA
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Oracle Java 8"
 		echo "================================================================================"
 		sudo add-apt-repository ppa:webupd8team/java -y && sudo apt-get update && sudo apt-get install oracle-java8-installer -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    27)	#ATUALIZANDO UNETBOOTIN
+    26)	#INDICADOR DE SYSMONITOR
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Indicator Sysmonitor"
 		echo "================================================================================"
 		sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor -y && sudo apt-get update && sudo apt-get install indicator-sysmonitor -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    28)	#ATUALIZANDO UNETBOOTIN
+    27)	#Indicator Weather
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
-		echo "================================================================================"
-		sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor -y && sudo apt-get update && sudo apt-get install indicator-sysmonitor -y
-		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
-		case $esc in
-			S|s)
-				sleep 2
-				tela_opcoes
-				select_op
-				;;
-			N|n)
-				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
-				sleep 2
-				exit
-				;;
-			*)
-				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
-				sleep 2
-				exit
-				;;
-		esac
-		;;
-
-    29)	#ATUALIZANDO UNETBOOTIN
-		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - Weather Indicator"
 		echo "================================================================================"
 		sudo add-apt-repository ppa:atareao/atareao -y && sudo apt-get update && sudo apt-get install my-weather-indicator -y
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
 
-    30)	#ATUALIZANDO UNETBOOTIN
+    28)	#Popcorn
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL - SAMBA file sharing"
+		echo "KEFIR SCRIPT INSTALL - POP CORN TIME!"
 		echo "================================================================================"
-		sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
+		sudo add-apt-repository ppa:webupd8team/popcorntime -y && sudo apt-get update && sudo apt-get install popcorn-time
 		echo
-		echo "DESEJA INSTALAR OUTRO PACOTE?[s/n]"
-		read -p "DIGITE: " esc
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
 		case $esc in
-			S|s)
+			S|s|y|Y)
 				sleep 2
 				tela_opcoes
 				select_op
 				;;
 			N|n)
 				echo
-				echo "OBRIGADO POR BAIXAR NOSSO SCRIPT :)"
+				echo "Thank you for using script"
 				sleep 2
 				exit
 				;;
 			*)
 				echo
-				echo "VOCÊ NÃO DIGITOU CORRETAMENTE!"
-				echo "TENTE NOVAMENTE!"
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
 				sleep 2
 				exit
 				;;
 		esac
 		;;
-	20) #SAINDO SO SCRIPT
+
+
+    29)	#TUXGUITAR
+		echo "================================================================================"
+		echo "KEFIR SCRIPT INSTALL - TUXGUITAR (GUITAR PRO)"
+		echo "================================================================================"
+		sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
 		echo
-		echo "OBRIGADO POR BAIXA NOSSO SCRIPT ✌ ¯\_(ツ)_/¯"
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+
+        30)	#ALL
+		echo "================================================================================"
+		echo "KEFIR SCRIPT INSTALL - ALL SOFTWARES "
+		echo "================================================================================"
+		    sudo apt-get install htop -y
+            sudo apt-get install mplayer -y
+            sudo apt-get install fbi -y
+            sudo apt-get install links2 -y
+            sudo apt-get install gdebi -y
+            sudo apt-get install ubuntu-restricted-extras -y
+            sudo apt-get install unity-tweak-tool -y
+            sudo apt-get install tor-browser -y
+            sudo apt-get install skype -y
+            sudo apt-get install furiusisomount -y
+            sudo apt-get install vlc -y
+            sudo apt-get install bleachbit -y
+            sudo apt-get install pdfmod -y
+            sudo apt-get install geany -y
+            sudo apt-get install synaptic -y
+            sudo apt-get install git-core -y
+            sudo apt-get install unetbootin -y
+            sudo apt-get install samba -y
+            sudo apt-get install gimp -y
+            sudo apt-get install inkscape -y
+            sudo apt-get install mypaint -y
+            sudo apt-get install teamviewer -y
+            sudo apt-get install audacity -y
+            sudo apt-get install wifite -y
+            sudo apt-get install synapse -y
+            sudo apt-get install reaver -y
+            sudo apt-get install aircrack-ng -y
+            sudo apt-get install sound-juicer -y
+            sudo apt-get install steam -y
+            sudo apt-get install openshot -y
+            sudo apt-get install xubuntu-icon-theme -y
+	        sudo apt-get install synergy -y
+            sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
+            sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor -y
+            sudo add-apt-repository ppa:ravefinity-project/ppa -y
+            sudo add-apt-repository ppa:atareao/atareao -y
+            sudo add-apt-repository ppa:noobslab/themes -y
+	        sudo add-apt-repository ppa:webupd8team/java -y && 
+            sudo apt-get update &&
+            sudo apt-get install flat-plat-gs -y
+            sudo apt-get install ambiance-flat-colors radiance-flat-colors -y
+            sudo apt-get install my-weather-indicator -y
+            sudo apt-get install indicator-sysmonitor -y
+			sudo apt-get install oracle-java8-installer -y &&
+			clear          
+		echo
+		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+	31) #EXIT SCRIPT
+		echo
+		echo "Thank you for using script"
 		sleep 2
 		exit
 		;;
 	 *)	#TRATAMENTO DE ERRO
 		echo "================================================================================"
-		echo "AKILA SCRIPT INSTALL"
+		echo "KEFIR SCRIPT INSTALL"
 		echo "================================================================================"
-		echo "OPS!VOCÊ NÃO DIGITOU NUMERO CORRETO [1 a 20]"
-		echo "NÃO DIGITOU NENHUM NUMERO"
-		echo "TENTE NOVAMENTE!"
+		echo "You did not enter CORRECTLY! [1 a 31]"
+		echo "Try again"
 		sleep 2
 		exit
 		;;
@@ -913,24 +1017,32 @@ esac
 #TELA DE OPÇÔES PARA USUARIO {{{
 tela_opcoes(){
 	echo "================================================================================"
-	echo "AKILA SCRIPT INSTALL ¯\_(ツ)_/¯"
+	echo "KEFIR SCRIPT INSTALL"
 	echo "================================================================================"
-	echo "[1]UBUNTU CODEC EXTRAS			[11]ATOM EDITOR DE TEXTO"
-	echo "[2]XUBUNTU CODEC EXTRAS			[12]BRACKETS EDITOR DE TEXTO"
-	echo "[3]KUBUNTU CODEC EXTRAS			[13]SUBLIME TEXT EDITOR DE TEXTO"
-	echo "[4]GDEBI(INSTALADOR ARQUIVOS .deb)	[14]JAVA(ORACLE)"
-	echo "[5]UBUNTU TWEAK				[15]OPENJDK(JAVA)"
-	echo "[6]UNETBOOTIN				[16]PLANK DOCK"
-	echo "[7]ATUALIZAR SISTEMA			[17]ELEMENTARY TWEAKS"
-	echo "[8]REMOVE PACOTES			[18]GCC(COMPILADOR)"
-	echo "[9]ATUALIZAR LIBREOFFICE		[19]INKSCAPE"
-	echo "[10]NUMIX ICON				[20]SAIR"
+	echo "[1]TERMINAL BASIC SOFTWARES       [17]SYNAPSE"
+	echo "[2]UBUNTU CODEC EXTRAS            [18]SOUND JUICER"
+	echo "[3]GDEBI                          [19]STEAM"
+	echo "[4]FURIOS ISO MOUNT               [20]PLAY ON LINUX"
+	echo "[5]VLC PLAYER                     [21]OPENSHOT"
+	echo "[6]BLEACH BIT			  [22]ELEMENTARY ICONS"
+	echo "[7]PDF MOD			  [23]FLATPLAT THEME (ONLY GNOME)"
+	echo "[8]GEANY			  [24]AMBIENCE RADIANCE FLAT THEME"
+	echo "[9]SYNAPTIC	                  [25]JAVA (ORACLE)"
+	echo "[10]GITHUB		          [26]INDICATOR SYSMONITOR"
+    echo "[11]UNETBOOTIN	    	          [27]WEATHER INDICATOR"
+    echo "[12]SAMBA			  [28]POPCORN TIME"
+    echo "[13]GIMP			  [29]TUXGUITAR"
+    echo "[14]INKSCAPE		          [30]ALL SOFTWARES"
+    echo "[15]MY PAINT		          [31]EXIT"
+    echo "[16]AUDACITY"
 	echo "================================================================================"
-	read -p "DIGITE [1 a 20] -> " op
+	read -p "ENTER [1 - 31] -> " op
+    clear 
 	echo
 }
 #}}}
 #CHAMANDO TODAS AS FUNÇÔES {{{
+testaconexao
 tela_opcoes
 select_op
 #}}}
