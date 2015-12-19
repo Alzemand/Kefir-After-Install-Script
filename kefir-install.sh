@@ -11,8 +11,8 @@
 
 clear
 	echo "Hi $USER, This script will install the best software on your computeror 
-        (Ubuntu, Linux Mint and More)"
-	key=$(zenity --entry --text="Please enter your password " --hide-text)
+        (Ubuntu, Linux Mint and More) -- PRESS ENTER" 
+	read key
 	if [ $key == $key ]
 		then
 			echo "Let's proceed with the installation ..."	
