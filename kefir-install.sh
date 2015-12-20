@@ -922,7 +922,46 @@ case $op in
 				;;
 		esac
 		;;
+    31)	#GTK-SCRIPT VERSION
+		echo "================================================================================"
+		echo "KEFIR SCRIPT INSTALL - KEFIR AFTER INSTALL TOOLS (GTK)"
+		echo "================================================================================"
+		sudo apt-get install git
 
+        sudo rm -R Kefir-After-Install-Tools/
+
+        git clone https://github.com/Alzemand/Kefir-After-Install-Tools &&
+
+        cd Kefir-After-Install-Tools/
+
+        chmod +x ./INSTALL.sh
+
+        ./INSTALL.sh
+        
+#		echo
+#		echo "Want install another package?[y/n]"
+#		read -p "ENTER: " esc
+#		case $esc in
+#			S|s|y|Y)
+#				sleep 2
+#				tela_opcoes
+#				select_op
+#				;;
+#			N|n)
+#				echo
+#				echo "Thank you for using script"
+#				sleep 2
+#				exit
+#				;;
+#			*)
+#				echo
+#				echo "You did not enter CORRECTLY!"
+#				echo "Try again"
+#				sleep 2
+#				exit
+#				;;
+#		esac
+		;;
         30)	#ALL
 		echo "================================================================================"
 		echo "KEFIR SCRIPT INSTALL - ALL SOFTWARES "
@@ -964,12 +1003,14 @@ case $op in
             sudo add-apt-repository ppa:ravefinity-project/ppa -y
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
-	        sudo add-apt-repository ppa:webupd8team/java -y && 
+	        sudo add-apt-repository ppa:webupd8team/java -y
+            sudo add-apt-repository ppa:webupd8team/popcorntime -y && 
             sudo apt-get update &&
             sudo apt-get install flat-plat-gs -y
             sudo apt-get install ambiance-flat-colors radiance-flat-colors -y
             sudo apt-get install my-weather-indicator -y
             sudo apt-get install indicator-sysmonitor -y
+            sudo apt-get install popcorn-time -y
 			sudo apt-get install oracle-java8-installer -y &&
 			clear          
 		echo
@@ -996,7 +1037,7 @@ case $op in
 				;;
 		esac
 		;;
-	31) #EXIT SCRIPT
+	32) #EXIT SCRIPT
 		echo
 		echo "Thank you for using script"
 		sleep 2
@@ -1006,7 +1047,7 @@ case $op in
 		echo "================================================================================"
 		echo "KEFIR SCRIPT INSTALL"
 		echo "================================================================================"
-		echo "You did not enter CORRECTLY! [1 a 31]"
+		echo "You did not enter CORRECTLY! [1 - 32]"
 		echo "Try again"
 		sleep 2
 		exit
@@ -1033,10 +1074,10 @@ tela_opcoes(){
     echo "[12]SAMBA			  [28]POPCORN TIME"
     echo "[13]GIMP			  [29]TUXGUITAR"
     echo "[14]INKSCAPE		          [30]ALL SOFTWARES"
-    echo "[15]MY PAINT		          [31]EXIT"
-    echo "[16]AUDACITY"
+    echo "[15]MY PAINT		          [31]KEFIR AFTER INSTALL TOOLS (GTK)"
+    echo "[16]AUDACITY                      [32]EXIT"
 	echo "================================================================================"
-	read -p "ENTER [1 - 31] -> " op
+	read -p "ENTER [1 - 32] -> " op
     clear 
 	echo
 }
