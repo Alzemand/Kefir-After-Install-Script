@@ -14,7 +14,7 @@ Selecting and Installing all the extra software on a new Ubuntu computer can be 
 
 <p align="center">
 <img alt="After"
-    src="https://scontent-gru2-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/1510804_941823405893332_94087137421097783_n.png?oh=26beaac7b0b6e701d06ddee28c902895&oe=57107E84">
+    src="https://scontent-gru2-1.xx.fbcdn.net/hphotos-xpa1/v/l/t1.0-9/12391056_942521829156823_7721986195589159826_n.png?oh=7e15b3464ba8f7d207c4ab001fd92b7c&oe=570A4D61">
 </p>
 
 To run on your operating system, extract ZIP file, open the folder in terminal and RUN:
