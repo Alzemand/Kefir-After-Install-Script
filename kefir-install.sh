@@ -1075,7 +1075,7 @@ tela_opcoes(){
     echo "[12]SAMBA			  [28]POPCORN TIME"
     echo "[13]GIMP			  [29]TUXGUITAR"
     echo "[14]INKSCAPE		          [30]ALL SOFTWARES"
-    echo "[15]MY PAINT		          [31]KEFIR AFTER INSTALL TOOLS (GTK)"
+    echo "[15]MY PAINT		          [31]KEFIR AFTER INSTALL TOOLS (recommended)"
     echo "[16]AUDACITY                      [32]EXIT"
 	echo "================================================================================"
 	read -p "ENTER [1 - 32] -> " op
