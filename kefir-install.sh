@@ -25,7 +25,7 @@ echo "Checking internet connection..."
 if ! ping -c 7 www.google.com.br 1>/dev/null 2>/dev/stdout; then
 	echo "You are offline. This script needs internet connection"
 	sleep 3
-	read -p "Try connection test again? y/n: " -n1 escolha
+	read -p "Try connection test again? [y/n]: " -n1 escolha
 	case $escolha in
 			s|S|y|Y) echo
 				clear
