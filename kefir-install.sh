@@ -4,7 +4,7 @@
 
 #================================================================#
 #                                                                #
-#			    KEFIR AFTER INSTALL SCRIPT                       #
+#	        KEFIR AFTER INSTALL SCRIPT                       #
 #                                                                #
 #================================================================#
 
@@ -56,7 +56,7 @@ select_op(){
 case $op in
 	1)	#TERMINAL BASIC SOFTWARES
 		echo "================================================================================"
-		echo "KEFIR SCRIPT INSTALL - htop mplayer2 fbi links2 wifite"
+		echo "KEFIR SCRIPT INSTALL - htop mplayer2 fbi links2 wifite winff"
 		echo "================================================================================"
 		sudo apt-get install winff htop mplayer2 fbi links2 wifite reaver aircrack-ng -y 
 		echo
