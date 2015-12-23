@@ -58,7 +58,7 @@ case $op in
 		echo "================================================================================"
 		echo "KEFIR SCRIPT INSTALL - htop mplayer2 fbi links2 wifite"
 		echo "================================================================================"
-		sudo apt-get install htop mplayer2 fbi links2 wifite reaver aircrack-ng -y 
+		sudo apt-get install winff htop mplayer2 fbi links2 wifite reaver aircrack-ng -y 
 		echo
 		echo "Want install another package?[y/n]"
 		read -p "ENTER: " esc
@@ -971,6 +971,7 @@ case $op in
             sudo apt-get install fbi -y
             sudo apt-get install links2 -y
             sudo apt-get install gdebi -y
+            sudo apt-get install winff -y
             sudo apt-get install ubuntu-restricted-extras -y
             sudo apt-get install unity-tweak-tool -y
             sudo apt-get install tor-browser -y
