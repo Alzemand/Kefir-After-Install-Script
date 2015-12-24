@@ -4,7 +4,7 @@
 
 #================================================================#
 #                                                                #
-#	        KEFIR AFTER INSTALL SCRIPT                       #
+#	            KEFIR AFTER INSTALL SCRIPT                       #
 #                                                                #
 #================================================================#
 
@@ -323,11 +323,11 @@ case $op in
 		esac
 		;;
 
-    10)	#ATUALIZANDO O GITHUB
+    10)	#ATUALIZANDO O SKYPE
 		echo "================================================================================"
-		echo "KEFIR SCRIPT INSTALL - GITHUB"
+		echo "KEFIR SCRIPT INSTALL - SKYPE"
 		echo "================================================================================"
-		sudo apt-get install git-core -y
+		sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" && sudo apt-get update && sudo apt-get install skype -y
 		echo
 		echo "Want install another package?[y/n]"
 		read -p "ENTER: " esc
@@ -1071,7 +1071,7 @@ tela_opcoes(){
 	echo "[7]PDF MOD			  [23]FLATPLAT THEME (ONLY GNOME)"
 	echo "[8]GEANY			  [24]AMBIENCE RADIANCE FLAT THEME"
 	echo "[9]SYNAPTIC	                  [25]JAVA (ORACLE)"
-	echo "[10]GITHUB		          [26]INDICATOR SYSMONITOR"
+	echo "[10]SKYPE		          [26]INDICATOR SYSMONITOR"
     echo "[11]UNETBOOTIN	    	          [27]WEATHER INDICATOR"
     echo "[12]SAMBA			  [28]POPCORN TIME"
     echo "[13]GIMP			  [29]TUXGUITAR"
