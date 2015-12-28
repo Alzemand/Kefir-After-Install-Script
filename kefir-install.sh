@@ -975,7 +975,7 @@ case $op in
             sudo apt-get install ubuntu-restricted-extras -y
             sudo apt-get install unity-tweak-tool -y
             sudo apt-get install tor-browser -y
-            sudo apt-get install skype -y
+            sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" && sudo apt-get update && sudo apt-get install skype -y
             sudo apt-get install furiusisomount -y
             sudo apt-get install vlc -y
             sudo apt-get install bleachbit -y
@@ -999,20 +999,19 @@ case $op in
             sudo apt-get install openshot -y
             sudo apt-get install xubuntu-icon-theme -y
 	        sudo apt-get install synergy -y
+            sudo apt-get install gtk-3-examples -y
             sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
             sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor -y
             sudo add-apt-repository ppa:ravefinity-project/ppa -y
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
-	        sudo add-apt-repository ppa:webupd8team/java -y
-            sudo add-apt-repository ppa:webupd8team/popcorntime -y && 
+	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
             sudo apt-get install flat-plat-gs -y
             sudo apt-get install windos-10-themes -y
             sudo apt-get install ambiance-flat-colors radiance-flat-colors -y
             sudo apt-get install my-weather-indicator -y
             sudo apt-get install indicator-sysmonitor -y
-            sudo apt-get install popcorn-time -y
 			sudo apt-get install oracle-java8-installer -y &&
 			clear          
 		echo
