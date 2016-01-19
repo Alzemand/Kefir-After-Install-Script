@@ -864,9 +864,9 @@ case $op in
 
     28)	#Popcorn
 		echo "================================================================================"
-		echo "KEFIR SCRIPT INSTALL - POP CORN TIME!"
+		echo "KEFIR SCRIPT INSTALL - ATOM TEXT EDITOR"
 		echo "================================================================================"
-		sudo add-apt-repository ppa:webupd8team/popcorntime -y && sudo apt-get update && sudo apt-get install popcorn-time
+		sudo add-apt-repository ppa:webupd8team/atom -y && sudo apt-get update && sudo apt-get install atom
 		echo
 		echo "Want install another package?[y/n]"
 		read -p "ENTER: " esc
@@ -1006,8 +1006,10 @@ case $op in
             sudo add-apt-repository ppa:ravefinity-project/ppa -y
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
+            sudo add-apt-repository ppa:webupd8team/atom -y 
 	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
+            sudo apt-get install atom -y
             sudo apt-get install pipelight-multi -y
             sudo apt-get install flat-plat-gs -y
             sudo apt-get install windos-10-themes -y
@@ -1074,7 +1076,7 @@ tela_opcoes(){
 	echo "[9]SYNAPTIC	                  [25]JAVA (ORACLE)"
 	echo "[10]SKYPE		          [26]INDICATOR SYSMONITOR"
     echo "[11]UNETBOOTIN	    	          [27]WEATHER INDICATOR"
-    echo "[12]SAMBA			  [28]POPCORN TIME"
+    echo "[12]SAMBA			  [28]ATOM"
     echo "[13]GIMP			  [29]TUXGUITAR"
     echo "[14]INKSCAPE		          [30]ALL SOFTWARES"
     echo "[15]MY PAINT		          [31]KEFIR AFTER INSTALL TOOLS (recommended)"
