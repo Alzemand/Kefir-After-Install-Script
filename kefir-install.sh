@@ -1006,7 +1006,9 @@ case $op in
             sudo add-apt-repository ppa:ravefinity-project/ppa -y
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
+            sudo add-apt-repository ppa:freefilesync/ffs -y 
             sudo add-apt-repository ppa:webupd8team/atom -y 
+            sudo apt-add-repository ppa:nemh/systemback -y
 	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
             sudo apt-get install atom -y
@@ -1014,8 +1016,10 @@ case $op in
             sudo apt-get install flat-plat-gs -y
             sudo apt-get install windos-10-themes -y
             sudo apt-get install ambiance-flat-colors radiance-flat-colors -y
-            sudo apt-get install my-weather-indicator -y
+            sudo apt-get install my-weather-indicator -y 
             sudo apt-get install indicator-sysmonitor -y
+            sudo apt-get install systemback -y
+            sudo apt-get install freefilesync -y
 			sudo apt-get install oracle-java8-installer -y &&
 			clear          
 		echo
@@ -1078,7 +1082,7 @@ tela_opcoes(){
     echo "[11]UNETBOOTIN	    	          [27]WEATHER INDICATOR"
     echo "[12]SAMBA			  [28]ATOM"
     echo "[13]GIMP			  [29]TUXGUITAR"
-    echo "[14]INKSCAPE		          [30]ALL SOFTWARES"
+    echo "[14]INKSCAPE		          [30]ALL SOFTWARES AND MORE"
     echo "[15]MY PAINT		          [31]KEFIR AFTER INSTALL TOOLS (recommended)"
     echo "[16]AUDACITY                      [32]EXIT"
 	echo "================================================================================"
