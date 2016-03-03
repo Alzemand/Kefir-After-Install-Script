@@ -1006,11 +1006,13 @@ case $op in
             sudo add-apt-repository ppa:ravefinity-project/ppa -y
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
+            sudo add-apt-repository ppa:noobslab/apps -y
             sudo add-apt-repository ppa:freefilesync/ffs -y 
             sudo add-apt-repository ppa:webupd8team/atom -y 
             sudo apt-add-repository ppa:nemh/systemback -y
 	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
+            sudo apt-get install cool-retro-term -y
             sudo apt-get install atom -y
             sudo apt-get install pipelight-multi -y
             sudo apt-get install flat-plat-gs -y
