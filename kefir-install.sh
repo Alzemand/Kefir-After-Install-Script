@@ -998,7 +998,8 @@ case $op in
             sudo apt-get install steam -y
             sudo apt-get install openshot -y
             sudo apt-get install xubuntu-icon-theme -y
-	        sudo apt-get install synergy -y
+	    sudo apt-get install synergy -y
+	    sudo rfkill unblock wifi -y
             sudo apt-get install gtk-3-examples -y
             sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
             sudo apt-add-repository ppa:pipelight/stable -y
