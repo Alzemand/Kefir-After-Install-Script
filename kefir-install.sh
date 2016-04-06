@@ -4,7 +4,7 @@
 
 #================================================================#
 #                                                                #
-#	            KEFIR AFTER INSTALL SCRIPT                   #
+#	            KEFIR AFTER INSTALL SCRIPT                       #
 #                                                                #
 #================================================================#
 
@@ -1011,8 +1011,10 @@ case $op in
             sudo add-apt-repository ppa:freefilesync/ffs -y 
             sudo add-apt-repository ppa:webupd8team/atom -y 
             sudo apt-add-repository ppa:nemh/systemback -y
+            sudo apt-add-repository ppa:paolorotolo/android-studio -y
 	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
+            sudo apt-get install android-studio -y
             sudo apt-get install cool-retro-term -y
             sudo apt-get install atom -y
             sudo apt-get install pipelight-multi -y
