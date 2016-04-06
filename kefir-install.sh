@@ -4,7 +4,7 @@
 
 #================================================================#
 #                                                                #
-#			    KEFIR AFTER INSTALL SCRIPT                       #
+#	            KEFIR AFTER INSTALL SCRIPT                       #
 #                                                                #
 #================================================================#
 
@@ -25,7 +25,7 @@ echo "Checking internet connection..."
 if ! ping -c 7 www.google.com.br 1>/dev/null 2>/dev/stdout; then
 	echo "You are offline. This script needs internet connection"
 	sleep 3
-	read -p "Try connection test again? y/n: " -n1 escolha
+	read -p "Try connection test again? [y/n]: " -n1 escolha
 	case $escolha in
 			s|S|y|Y) echo
 				clear
@@ -56,9 +56,9 @@ select_op(){
 case $op in
 	1)	#TERMINAL BASIC SOFTWARES
 		echo "================================================================================"
-		echo "KEFIR SCRIPT INSTALL - htop mplayer2 fbi links2 wifite"
+		echo "KEFIR SCRIPT INSTALL - htop mplayer2 fbi links2 wifite winff"
 		echo "================================================================================"
-		sudo apt-get install htop mplayer2 fbi links2 wifite reaver aircrack-ng -y 
+		sudo apt-get install winff htop mplayer2 fbi links2 wifite reaver aircrack-ng -y 
 		echo
 		echo "Want install another package?[y/n]"
 		read -p "ENTER: " esc
@@ -323,11 +323,11 @@ case $op in
 		esac
 		;;
 
-    10)	#ATUALIZANDO O GITHUB
+    10)	#ATUALIZANDO O SKYPE
 		echo "================================================================================"
-		echo "KEFIR SCRIPT INSTALL - GITHUB"
+		echo "KEFIR SCRIPT INSTALL - SKYPE"
 		echo "================================================================================"
-		sudo apt-get install git-core -y
+		sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" && sudo apt-get update && sudo apt-get install skype -y
 		echo
 		echo "Want install another package?[y/n]"
 		read -p "ENTER: " esc
@@ -862,11 +862,11 @@ case $op in
 		esac
 		;;
 
-    28)	#Popcorn
+    28)	#Atom
 		echo "================================================================================"
-		echo "KEFIR SCRIPT INSTALL - POP CORN TIME!"
+		echo "KEFIR SCRIPT INSTALL - ATOM TEXT EDITOR"
 		echo "================================================================================"
-		sudo add-apt-repository ppa:webupd8team/popcorntime -y && sudo apt-get update && sudo apt-get install popcorn-time
+		sudo add-apt-repository ppa:webupd8team/atom -y && sudo apt-get update && sudo apt-get install atom
 		echo
 		echo "Want install another package?[y/n]"
 		read -p "ENTER: " esc
@@ -971,10 +971,11 @@ case $op in
             sudo apt-get install fbi -y
             sudo apt-get install links2 -y
             sudo apt-get install gdebi -y
+            sudo apt-get install winff -y
             sudo apt-get install ubuntu-restricted-extras -y
             sudo apt-get install unity-tweak-tool -y
             sudo apt-get install tor-browser -y
-            sudo apt-get install skype -y
+            sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" && sudo apt-get update && sudo apt-get install skype -y
             sudo apt-get install furiusisomount -y
             sudo apt-get install vlc -y
             sudo apt-get install bleachbit -y
@@ -997,21 +998,33 @@ case $op in
             sudo apt-get install steam -y
             sudo apt-get install openshot -y
             sudo apt-get install xubuntu-icon-theme -y
-	        sudo apt-get install synergy -y
+	    sudo apt-get install synergy -y
+	    sudo rfkill unblock wifi -y
+            sudo apt-get install gtk-3-examples -y
             sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
+            sudo apt-add-repository ppa:pipelight/stable -y
             sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor -y
             sudo add-apt-repository ppa:ravefinity-project/ppa -y
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
-	        sudo add-apt-repository ppa:webupd8team/java -y
-            sudo add-apt-repository ppa:webupd8team/popcorntime -y && 
+            sudo add-apt-repository ppa:noobslab/apps -y
+            sudo add-apt-repository ppa:freefilesync/ffs -y 
+            sudo add-apt-repository ppa:webupd8team/atom -y 
+            sudo apt-add-repository ppa:nemh/systemback -y
+            sudo apt-add-repository ppa:paolorotolo/android-studio -y
+	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
+            sudo apt-get install android-studio -y
+            sudo apt-get install cool-retro-term -y
+            sudo apt-get install atom -y
+            sudo apt-get install pipelight-multi -y
             sudo apt-get install flat-plat-gs -y
             sudo apt-get install windos-10-themes -y
             sudo apt-get install ambiance-flat-colors radiance-flat-colors -y
-            sudo apt-get install my-weather-indicator -y
+            sudo apt-get install my-weather-indicator -y 
             sudo apt-get install indicator-sysmonitor -y
-            sudo apt-get install popcorn-time -y
+            sudo apt-get install systemback -y
+            sudo apt-get install freefilesync -y
 			sudo apt-get install oracle-java8-installer -y &&
 			clear          
 		echo
@@ -1070,11 +1083,11 @@ tela_opcoes(){
 	echo "[7]PDF MOD			  [23]FLATPLAT THEME (ONLY GNOME)"
 	echo "[8]GEANY			  [24]AMBIENCE RADIANCE FLAT THEME"
 	echo "[9]SYNAPTIC	                  [25]JAVA (ORACLE)"
-	echo "[10]GITHUB		          [26]INDICATOR SYSMONITOR"
+	echo "[10]SKYPE		          [26]INDICATOR SYSMONITOR"
     echo "[11]UNETBOOTIN	    	          [27]WEATHER INDICATOR"
-    echo "[12]SAMBA			  [28]POPCORN TIME"
+    echo "[12]SAMBA			  [28]ATOM"
     echo "[13]GIMP			  [29]TUXGUITAR"
-    echo "[14]INKSCAPE		          [30]ALL SOFTWARES"
+    echo "[14]INKSCAPE		          [30]ALL SOFTWARES AND MORE"
     echo "[15]MY PAINT		          [31]KEFIR AFTER INSTALL TOOLS (recommended)"
     echo "[16]AUDACITY                      [32]EXIT"
 	echo "================================================================================"
