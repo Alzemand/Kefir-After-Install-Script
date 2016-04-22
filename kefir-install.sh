@@ -922,6 +922,8 @@ case $op in
 				;;
 		esac
 		;;
+
+  
     31)	#GTK-SCRIPT VERSION
 		echo "================================================================================"
 		echo "KEFIR SCRIPT INSTALL - KEFIR AFTER INSTALL TOOLS (GTK)"
@@ -1029,6 +1031,36 @@ case $op in
 			clear          
 		echo
 		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+
+       realtek)	#REALTEK 
+		echo "================================================================================"
+		echo "KEFIR SCRIPT CONFIGURE -  Realtek RTL8723BE PCIe Wireless Network Adapter"
+		echo "================================================================================"
+		echo "options rtl8723be fwlps=N ips=N" | sudo tee /etc/modprobe.d/rtl8723be.conf
+		echo
+		echo "Want continue? [y/n]"
 		read -p "ENTER: " esc
 		case $esc in
 			S|s|y|Y)
