@@ -8,6 +8,9 @@
 #                                                                #
 #================================================================#
 
+#multicore boot script for future 
+#
+# sudo sed -i 's/CONCURRENCY=none/#CONCURRENCY=none\nCONCURRENCY=makefile/g' /etc/init.d/rc
 
 clear
 	echo "Hi $USER, This script will install the best software on your computeror 
