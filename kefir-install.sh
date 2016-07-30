@@ -974,6 +974,7 @@ case $op in
 		    sudo apt-get install htop -y
             sudo apt-get install mplayer -y
             sudo apt-get install fbi -y
+	    sudo apt-get install gedit-plugins -y
             sudo apt-get install links2 -y
             sudo apt-get install gdebi -y
             sudo apt-get install winff -y
