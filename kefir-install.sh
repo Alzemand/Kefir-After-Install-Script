@@ -4,7 +4,7 @@
 
 #================================================================#
 #                                                                #
-#	            KEFIR AFTER INSTALL SCRIPT                       #
+#	            KEFIR AFTER INSTALL SCRIPT                   #
 #                                                                #
 #================================================================#
 
@@ -1023,6 +1023,7 @@ case $op in
             sudo apt-get install android-studio -y
             sudo apt-get install cool-retro-term -y
             sudo apt-get install atom -y
+            sudo apt-get install pepperflashplugin-nonfree
             sudo apt-get install pipelight-multi -y
             sudo apt-get install flat-plat-gs -y
             sudo apt-get install windos-10-themes -y
