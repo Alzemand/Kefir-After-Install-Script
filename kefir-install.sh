@@ -1088,6 +1088,68 @@ case $op in
 				;;
 		esac
 		;;
+	 plymouth)	#plymouth theme
+		echo "================================================================================"
+		echo "KEFIR SCRIPT CONFIGURE -  Plymouth Themes"
+		echo "================================================================================"
+		sudo apt-get install plymouth-theme* -y
+		sudo apt-get remove plymouth-theme-edubuntu -y
+		sudo update-alternatives --config default.plymouth
+		echo
+		echo "Want continue? [y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+		swipe)	#swipe config
+		echo "================================================================================"
+		echo "KEFIR SCRIPT CONFIGURE -  Plymouth Themes"
+		echo "================================================================================"
+		echo "open sudo nano /etc/sysctl.conf"
+		echo "add this in the end file vm.swappiness=5"
+		echo "you can see cat /proc/sys/vm/swappiness"
+		echo
+		echo "Want continue? [y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
 	32) #EXIT SCRIPT
 		echo
 		echo "Thank you for using script"
