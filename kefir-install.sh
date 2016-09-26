@@ -974,7 +974,7 @@ case $op in
 		    sudo apt-get install htop -y
             sudo apt-get install mplayer -y
             sudo apt-get install fbi -y
-	    sudo apt-get install gedit-plugins -y
+	        sudo apt-get install gedit-plugins -y
             sudo apt-get install links2 -y
             sudo apt-get install gdebi -y
             sudo apt-get install winff -y
@@ -1004,8 +1004,8 @@ case $op in
             sudo apt-get install steam -y
             sudo apt-get install openshot -y
             sudo apt-get install xubuntu-icon-theme -y
-	    sudo apt-get install synergy -y
-	    sudo rfkill unblock wifi -y
+	        sudo apt-get install synergy -y
+	        sudo rfkill unblock wifi -y
             sudo apt-get install gtk-3-examples -y
             sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
             sudo apt-add-repository ppa:pipelight/stable -y
@@ -1017,9 +1017,11 @@ case $op in
             sudo add-apt-repository ppa:freefilesync/ffs -y 
             sudo add-apt-repository ppa:webupd8team/atom -y 
             sudo apt-add-repository ppa:nemh/systemback -y
+            sudo add-apt-repository ppa:nilarimogard/webupd8 -y
             sudo apt-add-repository ppa:paolorotolo/android-studio -y
 	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
+            sudo apt-get install winusb -y
             sudo apt-get install android-studio -y
             sudo apt-get install cool-retro-term -y
             sudo apt-get install atom -y
