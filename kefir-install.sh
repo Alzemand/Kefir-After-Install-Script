@@ -1017,6 +1017,7 @@ case $op in
             sudo add-apt-repository ppa:freefilesync/ffs -y 
             sudo add-apt-repository ppa:webupd8team/atom -y 
             sudo apt-add-repository ppa:nemh/systemback -y
+            sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
             sudo add-apt-repository ppa:nilarimogard/webupd8 -y
             sudo apt-add-repository ppa:paolorotolo/android-studio -y
 	        sudo add-apt-repository ppa:webupd8team/java -y && 
@@ -1034,6 +1035,7 @@ case $op in
             sudo apt-get install indicator-sysmonitor -y
             sudo apt-get install systemback -y
             sudo apt-get install freefilesync -y
+            sudo apt-get install grub-customizer -y
 			sudo apt-get install oracle-java8-installer -y &&
 			clear          
 		echo
