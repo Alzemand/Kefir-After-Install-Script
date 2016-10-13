@@ -1014,8 +1014,7 @@ case $op in
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
             sudo add-apt-repository ppa:noobslab/apps -y
-            sudo add-apt-repository ppa:freefilesync/ffs -y 
-            sudo add-apt-repository ppa:webupd8team/atom -y 
+            sudo add-apt-repository ppa:webupd8team/atom -y
             sudo apt-add-repository ppa:nemh/systemback -y
             sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
             sudo add-apt-repository ppa:nilarimogard/webupd8 -y
@@ -1034,7 +1033,6 @@ case $op in
             sudo apt-get install my-weather-indicator -y 
             sudo apt-get install indicator-sysmonitor -y
             sudo apt-get install systemback -y
-            sudo apt-get install freefilesync -y
             sudo apt-get install grub-customizer -y
 			sudo apt-get install oracle-java8-installer -y &&
 			clear          
@@ -1092,14 +1090,74 @@ case $op in
 				;;
 		esac
 		;;
-	 plymouth)	#plymouth theme
+	 remove-purple)	#remove purple from ubuntu
 		echo "================================================================================"
-		echo "KEFIR SCRIPT CONFIGURE -  Plymouth Themes"
+		echo "KEFIR SCRIPT CONFIGURE -  remove purple"
 		echo "================================================================================"
-		sudo apt-get install plymouth-theme* -y
-		sudo apt-get remove plymouth-theme-edubuntu -y
-		sudo update-alternatives --config default.plymouth
-		echo
+		sudo apt-get install dconf-editor -y
+		echo " "
+		echo " "
+		echo "=== REMOVE PURBLE COLOR FROM UBUNTU ==="
+		echo " "
+		echo "Fire up a terminal and type the following to edit the plymouth config file.
+
+    sudo gedit /lib/plymouth/themes/ubuntu-logo/ubuntu-logo.script
+
+Find this line in the file and change the color to the one you want.
+
+    Window.SetBackgroundTopColor (0.85, 0.85, 0.85);     # Nice colour on top of the screen fading to
+    Window.SetBackgroundBottomColor (0.75, 0.75, 0.75);  # an equally nice colour on the bottom
+
+For instance, to set the plymouth background to black, we would use,
+
+    Window.SetBackgroundTopColor (0.00, 0.00, 0.00);     # Nice colour on top of the screen fading to
+    Window.SetBackgroundBottomColor (0.00, 0.00, 0.00);  # an equally nice colour on the bottom
+
+Save the file.
+
+Now we need to rebuild the kernel parameters.
+
+    sudo update-initramfs -u
+
+That will do it. Now restart and you are all done.
+
+But wait, there is this hideous purple background for GRUB as well, lets fix that.
+
+Fire up a terminal and type,
+
+    sudo gedit /lib/plymouth/themes/ubuntu-logo/ubuntu-logo.grub
+
+Now you can change the grub background colour by changing the values of the 3 in numbers in the text document. The code below will give you a nice black background.
+
+    if background_color 0,0,0 ; then
+        clear
+    fi
+
+If you prefer purple instead,  use the code below
+
+    if background_color 44,0,30 ; then
+        clear
+    fi
+
+Save the file.
+
+Now we need to update grub, this can be done by typing the code below in the terminal.
+
+    sudo update-grub
+
+Now there is one more problem, Ubuntu's Lightdm shows purple color for a split second at logon, this may not be an issue for some but I simply cant stand it. Here is how you fix it.
+
+Open up a terminal and install dconf tools first by typing sudo apt-get install dconf-tools
+
+Now type the following in a terminal,
+
+    sudo su
+    xhost +SI:localuser:lightdm
+    sudo su lightdm -s /bin/bash
+    dconf-editor
+
+Now go to com, conical, unity-greeter and change background-color to #000000 ( For Black )
+"
 		echo "Want continue? [y/n]"
 		read -p "ENTER: " esc
 		case $esc in
@@ -1123,7 +1181,7 @@ case $op in
 				;;
 		esac
 		;;
-		swipe)	#swipe config
+		swap)	#swap config
 		echo "================================================================================"
 		echo "KEFIR SCRIPT CONFIGURE -  Plymouth Themes"
 		echo "================================================================================"
@@ -1200,7 +1258,7 @@ tela_opcoes(){
 }
 #}}}
 #CHAMANDO TODAS AS FUNÇÔES {{{
-testaconexao
+#testaconexao
 tela_opcoes
 select_op
 #}}}
