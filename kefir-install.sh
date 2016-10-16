@@ -4,10 +4,13 @@
 
 #================================================================#
 #                                                                #
-#	            KEFIR AFTER INSTALL SCRIPT                       #
+#	            KEFIR AFTER INSTALL SCRIPT                   #
 #                                                                #
 #================================================================#
 
+#multicore boot script for future 
+#
+# sudo sed -i 's/CONCURRENCY=none/#CONCURRENCY=none\nCONCURRENCY=makefile/g' /etc/init.d/rc
 
 clear
 	echo "Hi $USER, This script will install the best software on your computeror 
@@ -922,6 +925,8 @@ case $op in
 				;;
 		esac
 		;;
+
+  
     31)	#GTK-SCRIPT VERSION
 		echo "================================================================================"
 		echo "KEFIR SCRIPT INSTALL - KEFIR AFTER INSTALL TOOLS (GTK)"
@@ -969,6 +974,7 @@ case $op in
 		    sudo apt-get install htop -y
             sudo apt-get install mplayer -y
             sudo apt-get install fbi -y
+	        sudo apt-get install gedit-plugins -y
             sudo apt-get install links2 -y
             sudo apt-get install gdebi -y
             sudo apt-get install winff -y
@@ -998,8 +1004,8 @@ case $op in
             sudo apt-get install steam -y
             sudo apt-get install openshot -y
             sudo apt-get install xubuntu-icon-theme -y
-	    sudo apt-get install synergy -y
-	    sudo rfkill unblock wifi -y
+	        sudo apt-get install synergy -y
+	        sudo rfkill unblock wifi -y
             sudo apt-get install gtk-3-examples -y
             sudo apt-get install tuxguitar-alsa tuxguitar-jsa tuxguitar-oss -y
             sudo apt-add-repository ppa:pipelight/stable -y
@@ -1008,15 +1014,18 @@ case $op in
             sudo add-apt-repository ppa:atareao/atareao -y
             sudo add-apt-repository ppa:noobslab/themes -y
             sudo add-apt-repository ppa:noobslab/apps -y
-            sudo add-apt-repository ppa:freefilesync/ffs -y 
-            sudo add-apt-repository ppa:webupd8team/atom -y 
+            sudo add-apt-repository ppa:webupd8team/atom -y
             sudo apt-add-repository ppa:nemh/systemback -y
+            sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
+            sudo add-apt-repository ppa:nilarimogard/webupd8 -y
             sudo apt-add-repository ppa:paolorotolo/android-studio -y
 	        sudo add-apt-repository ppa:webupd8team/java -y && 
             sudo apt-get update &&
+            sudo apt-get install winusb -y
             sudo apt-get install android-studio -y
             sudo apt-get install cool-retro-term -y
             sudo apt-get install atom -y
+            sudo apt-get install pepperflashplugin-nonfree -y
             sudo apt-get install pipelight-multi -y
             sudo apt-get install flat-plat-gs -y
             sudo apt-get install windos-10-themes -y
@@ -1024,11 +1033,163 @@ case $op in
             sudo apt-get install my-weather-indicator -y 
             sudo apt-get install indicator-sysmonitor -y
             sudo apt-get install systemback -y
-            sudo apt-get install freefilesync -y
+            sudo apt-get install grub-customizer -y
 			sudo apt-get install oracle-java8-installer -y &&
 			clear          
 		echo
 		echo "Want install another package?[y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+
+       realtek)	#REALTEK 
+		echo "================================================================================"
+		echo "KEFIR SCRIPT CONFIGURE -  Realtek RTL8723BE PCIe Wireless Network Adapter"
+		echo "================================================================================"
+		echo "options rtl8723be fwlps=N ips=N" | sudo tee /etc/modprobe.d/rtl8723be.conf
+		echo
+		echo "Want continue? [y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+	 remove-purple)	#remove purple from ubuntu
+		echo "================================================================================"
+		echo "KEFIR SCRIPT CONFIGURE -  remove purple"
+		echo "================================================================================"
+		sudo apt-get install dconf-editor -y
+		echo " "
+		echo " "
+		echo "=== REMOVE PURBLE COLOR FROM UBUNTU ==="
+		echo " "
+		echo "Fire up a terminal and type the following to edit the plymouth config file.
+
+    sudo gedit /lib/plymouth/themes/ubuntu-logo/ubuntu-logo.script
+
+Find this line in the file and change the color to the one you want.
+
+    Window.SetBackgroundTopColor (0.85, 0.85, 0.85);     # Nice colour on top of the screen fading to
+    Window.SetBackgroundBottomColor (0.75, 0.75, 0.75);  # an equally nice colour on the bottom
+
+For instance, to set the plymouth background to black, we would use,
+
+    Window.SetBackgroundTopColor (0.00, 0.00, 0.00);     # Nice colour on top of the screen fading to
+    Window.SetBackgroundBottomColor (0.00, 0.00, 0.00);  # an equally nice colour on the bottom
+
+Save the file.
+
+Now we need to rebuild the kernel parameters.
+
+    sudo update-initramfs -u
+
+That will do it. Now restart and you are all done.
+
+But wait, there is this hideous purple background for GRUB as well, lets fix that.
+
+Fire up a terminal and type,
+
+    sudo gedit /lib/plymouth/themes/ubuntu-logo/ubuntu-logo.grub
+
+Now you can change the grub background colour by changing the values of the 3 in numbers in the text document. The code below will give you a nice black background.
+
+    if background_color 0,0,0 ; then
+        clear
+    fi
+
+If you prefer purple instead,  use the code below
+
+    if background_color 44,0,30 ; then
+        clear
+    fi
+
+Save the file.
+
+Now we need to update grub, this can be done by typing the code below in the terminal.
+
+    sudo update-grub
+
+Now there is one more problem, Ubuntu's Lightdm shows purple color for a split second at logon, this may not be an issue for some but I simply cant stand it. Here is how you fix it.
+
+Open up a terminal and install dconf tools first by typing sudo apt-get install dconf-tools
+
+Now type the following in a terminal,
+
+    sudo su
+    xhost +SI:localuser:lightdm
+    sudo su lightdm -s /bin/bash
+    dconf-editor
+
+Now go to com, conical, unity-greeter and change background-color to #000000 ( For Black )
+"
+		echo "Want continue? [y/n]"
+		read -p "ENTER: " esc
+		case $esc in
+			S|s|y|Y)
+				sleep 2
+				tela_opcoes
+				select_op
+				;;
+			N|n)
+				echo
+				echo "Thank you for using script"
+				sleep 2
+				exit
+				;;
+			*)
+				echo
+				echo "You did not enter CORRECTLY!"
+				echo "Try again"
+				sleep 2
+				exit
+				;;
+		esac
+		;;
+		swap)	#swap config
+		echo "================================================================================"
+		echo "KEFIR SCRIPT CONFIGURE -  Plymouth Themes"
+		echo "================================================================================"
+		echo "open sudo nano /etc/sysctl.conf"
+		echo "add this in the end file vm.swappiness=5"
+		echo "you can see cat /proc/sys/vm/swappiness"
+		echo
+		echo "Want continue? [y/n]"
 		read -p "ENTER: " esc
 		case $esc in
 			S|s|y|Y)
@@ -1097,7 +1258,7 @@ tela_opcoes(){
 }
 #}}}
 #CHAMANDO TODAS AS FUNÇÔES {{{
-testaconexao
+#testaconexao
 tela_opcoes
 select_op
 #}}}
